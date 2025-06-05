@@ -1,0 +1,15 @@
+{
+  "originHash" : "4a165149dff7efbc33f1c30bac6c73b763c645086729285a9534ea8529c43109",
+  "pins" : [
+    {
+      "identity" : "glorifier",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/no-comment/Glorifier",
+      "state" : {
+        "branch" : "main",
+        "revision" : "5afeed5a051e247f610830558d82f09b3db9de2a"
+      }
+    }
+  ],
+  "version" : 3
+}
