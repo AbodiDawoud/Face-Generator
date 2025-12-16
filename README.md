@@ -1,23 +1,17 @@
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/3521da09-68ab-4a07-a4d3-9a070cf3dba5" height=140>
+  <img src="https://github.com/user-attachments/assets/fe5b32fb-2b9e-4b79-aef6-1eee1fb4e6f3" height=140>
 </p>
 
 
 
 # Face Generator
-[![swift-version](https://img.shields.io/badge/swift-5-orange.svg)](https://github.com/apple/swift)
+[![swift-version](https://img.shields.io/badge/swift-5-blue.svg)](https://github.com/apple/swift)
 [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 
-
-
-## Features
-
-- Unlimited
-- Can be used Offline
-- Clean Code
+Generate unlimited high-quality face images completely offline on your device.
 
 
 ## Screenshots
 
-<img src="https://github.com/user-attachments/assets/19baefce-18da-41c5-8f1b-b3f15de3e837" height="300">
-<img src="https://github.com/user-attachments/assets/67acb29f-20bc-45d7-b21c-3aec3c3ac941" height="300">
+<img src="https://github.com/user-attachments/assets/36336735-198b-4df6-86b1-88387b9ca705" height="300">
+<img src="https://github.com/user-attachments/assets/0f0c8754-54ff-4ebc-b958-170ca52ae5d5" height="300">
