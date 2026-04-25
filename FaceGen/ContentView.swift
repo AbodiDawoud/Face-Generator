@@ -12,36 +12,20 @@ struct ContentView: View {
     @Environment(\.colorScheme) private var scheme
     
     var body: some View {
-        VStack(alignment: .center, spacing: 0) {
-            ZStack {
-                Circle()
-                    .foregroundColor(.accentColor)
-                    .frame(width: 80)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-                    .blur(radius: 70)
-                
-                Circle()
-                    .foregroundColor(.cyan)
-                    .frame(width: 50)
-                    .blur(radius: 60)
-                
-                Circle()
-                    .foregroundColor(.blue)
-                    .frame(width: 80)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .blur(radius: 75)
-                
-                
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Mobile StyleGAN")
-                        .font(.title.weight(.heavy))
-                        .foregroundStyle(scheme == .light ? lightModeGradient : darkModeGradient)
+        VStack(alignment: .center, spacing: 4) {
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Mobile StyleGAN")
+                    .font(.title.weight(.heavy))
+                    .foregroundStyle(
+                        scheme == .light ? lightModeGradient : darkModeGradient
+                    )
                     
-                    Text("A Lightweight Convolutional Neural Network for High-Fidelity Image Synthesis")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.leading)
-                }
+                Text(
+                    "A Lightweight Convolutional Neural Network for High-Fidelity Image Synthesis"
+                )
+                .font(.subheadline)
+                .foregroundStyle(.gray)
+                .multilineTextAlignment(.leading)
             }
             .padding()
             .padding(.bottom, 60)
@@ -52,8 +36,9 @@ struct ContentView: View {
                     Image(uiImage: outputImage)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 320, height: 320)
+                        .frame(width: 350, height: 350)
                         .cornerRadius(25)
+                        .transition(.move(edge: .top))
                 } else {
                     RoundedRectangle(cornerRadius: 25)
                         .stroke(.gray.opacity(0.6), style: .init(lineWidth: 2, lineCap: .round, dash: [8, 8]))
@@ -78,7 +63,7 @@ struct ContentView: View {
             
             VStack(spacing: 10) {
                 Button(action: manager.runMobileStyleGAN) {
-                    Label("Generate", systemImage: "wand.and.sparkles")
+                    Text("Generate")
                         .padding(.vertical, 6)
                         .font(.headline)
                         .foregroundStyle(.background)
@@ -93,17 +78,12 @@ struct ContentView: View {
                 if manager.generatedImage != nil {
                     Button(action: manager.saveOutputImage) {
                         Text("Save Image")
-                            .padding(.vertical, 6)
+                            .padding(.vertical, 12)
                             .font(.headline)
                             .frame(maxWidth: .infinity, alignment: .center)
-                    }
-                    .overlay {
-                        Capsule()
-                            .stroke(.gray.opacity(0.15), lineWidth: 1)
+                            .background(Color(.tertiarySystemFill), in: .capsule)
                     }
                     .padding(.horizontal, 52)
-                    .buttonStyle(.bordered)
-                    .buttonBorderShape(.capsule)
                 }
             }
             .disabled(manager.isGenerating)
@@ -113,10 +93,15 @@ struct ContentView: View {
         }
         .overlay {
             if manager.showSavedPopup {
-                Text("Image saved")
-                    .foregroundStyle(.gray)
-                    .padding(.horizontal, 30).padding(.vertical, 18)
-                    .background(.regularMaterial, in: .rect(cornerRadius: 10))
+                HStack {
+                    Image(systemName: "checkmark")
+                        .foregroundStyle(.green.gradient)
+                    Text("Image saved")
+                        .foregroundStyle(.gray)
+                }
+                .padding(.horizontal, 20)
+                .padding(.vertical, 14)
+                .background(.regularMaterial, in: .rect(cornerRadius: 10))
             }
         }
     }
@@ -131,7 +116,7 @@ struct ContentView: View {
     
     var lightModeGradient: LinearGradient {
         LinearGradient(
-            colors: [.blue, .indigo, .purple],
+            colors: [Color(#colorLiteral(red: 1, green: 0.4133105576, blue: 0.8369686007, alpha: 1)), Color(#colorLiteral(red: 1, green: 0.7145617604, blue: 0.532741189, alpha: 1))],
             startPoint: .leading,
             endPoint: .trailing
         )
