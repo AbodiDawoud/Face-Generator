@@ -1,9 +1,3 @@
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/fe5b32fb-2b9e-4b79-aef6-1eee1fb4e6f3" height=140>
-</p>
-
-
-
 # Face Generator
 [![swift-version](https://img.shields.io/badge/swift-5-blue.svg)](https://github.com/apple/swift)
 [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
